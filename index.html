@@ -5,228 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Panna Drenkó</title>
 
+<!-- SEO Meta Description -->
+<meta name="description" content="Portfolio of visual artist and graphic designer Panna Drenkó (also known as Panna Drenko). Explore illustration, print, film, and installation projects.">
+<meta name="keywords" content="Panna Drenkó, Panna Drenko, Drenko, visual artist, graphic designer, portfolio, illustration, print, Royal Academy of Art The Hague">
+<meta name="author" content="Panna Drenkó">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Panna Drenkó – Visual Artist & Graphic Designer">
+<meta property="og:description" content="Portfolio of visual artist and graphic designer Panna Drenkó (also known as Panna Drenko). Explore illustration, print, film, and installation projects.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pannathe.github.io/portfolio/">
+<meta property="og:image" content="https://pannathe.github.io/portfolio/media/IMG_1187.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Panna Drenkó – Visual Artist & Graphic Designer">
+<meta name="twitter:description" content="Portfolio of visual artist and graphic designer Panna Drenkó (also known as Panna Drenko).">
+<meta name="twitter:image" content="https://pannathe.github.io/portfolio/media/IMG_1187.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Panna Drenkó",
+  "alternateName": ["Panna Drenko", "Drenko"],
+  "jobTitle": "Visual Artist and Graphic Designer",
+  "url": "https://pannathe.github.io/portfolio/",
+  "image": "https://pannathe.github.io/portfolio/media/IMG_1187.png",
+  "sameAs": ["https://www.instagram.com/pannathepan"]
+}
+</script>
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* --- General Styles --- */
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 400;
-    color: #000;
-    background: #fff;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-body::-webkit-scrollbar { display: none; }
-*, *::before, *::after { box-sizing: border-box; }
+/* --- General --- */
+html, body { margin:0; padding:0; font-family:'Quicksand',sans-serif; color:#000; background:#fff; height:100%; overflow-x:hidden; scrollbar-width:none; -ms-overflow-style:none; }
+body::-webkit-scrollbar { display:none; }
+*, *::before, *::after { box-sizing:border-box; }
+button:focus { outline:none; }
 
 /* --- Header --- */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    z-index: 100;
-    background: #fff;
-}
-header .header-name {
-    font-weight: 300;
-    font-size: 1.25rem;
-}
-header button {
-    font-weight: 300;
-    font-size: 1.25rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-}
+header { position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; z-index:100; background:#fff; }
+header .header-name { font-weight:300; font-size:1.25rem; }
+header button { font-weight:300; font-size:1.25rem; background:none; border:none; cursor:pointer; letter-spacing:0.5px; }
 
 /* --- Main Gallery --- */
-main.main-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    padding: 120px 20px 40px;
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
-}
+main.main-gallery { display:flex; flex-direction:column; align-items:center; gap:50px; padding:120px 20px 40px; width:100%; max-width:100vw; overflow-x:hidden; }
 
 /* --- Project Images --- */
-.project {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.project img {
-    display: block;
-    width: 60%;
-    max-width: 600px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.project img:hover { transform: scale(1.02); }
+.project { display:flex; justify-content:center; width:100%; }
+.project img { display:block; width:60%; max-width:600px; cursor:pointer; transition:transform 0.3s ease; }
+.project img:hover { transform:scale(1.02); }
 
-/* --- Modal Base --- */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 200;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-.modal.show { opacity: 1; pointer-events: auto; }
+/* --- Modal --- */
+.modal { position:fixed; inset:0; background:rgba(0,0,0,0.8); display:flex; justify-content:center; align-items:center; z-index:200; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
+.modal.show { opacity:1; pointer-events:auto; }
 
-/* --- Modal Content --- */
-.modal-content {
-    position: relative;
-    background: #fff;
-    padding: 40px; /* Increased 10px from 30px */
-    max-width: 90%;
-    max-height: 90%;
-    overflow-y: auto;
-    font-weight: 200;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    letter-spacing: 0.3px;
-    font-family: 'Quicksand', sans-serif;
-    color: #000;
-    text-align: left;
-}
-.modal-content::-webkit-scrollbar { display: none; }
+.modal-content { position:relative; background:#fff; padding:40px; max-width:90%; max-height:90%; overflow-y:auto; font-weight:200; font-size:1.1rem; line-height:1.6; letter-spacing:0.3px; text-align:center; }
+.modal-content::-webkit-scrollbar { display:none; }
 
+.close-btn {
+  position: absolute;
+  top:5px;        /* closer to top edge */
+  right:5px;      /* closer to right edge */
+  font-size:1.5rem; /* smaller × */
+  line-height:1;
+  cursor:pointer;
+  background:none;
+  border:none;
+  color:#000;
+  font-weight:300;
+  padding:0;
+}
 /* --- Profile Image --- */
-.profile-img {
-    width: 130px;
-    height: 160px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 30px; /* Increased bottom margin 10px */
-}
+.profile-img { width:130px; height:160px; object-fit:cover; display:block; margin:0 auto 30px; }
 
 /* --- About Modal --- */
-#about-modal .modal-content {
-    text-align: left;
-    width: 80%;
-    max-width: 800px;
-    max-height: 80%;
-    padding: 30px 20px; /* +10px each side */
-}
-#about-modal .modal-content a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.2s ease;
-}
-#about-modal .modal-content a:hover {
-    color: #555;
-    text-decoration: underline;
-}
+#about-modal .modal-content { text-align:center; width:80%; max-width:800px; max-height:80%; padding:30px 20px; }
+#about-modal .modal-content a { color:#000; text-decoration:none; font-weight:400; transition:color 0.2s ease; }
+#about-modal .modal-content a:hover { color:#555; text-decoration:underline; }
 
-#image-modal .modal-content {
-    text-align: left;
-    width: 60%;
-    max-width: 650px;
-    max-height: 90%;
-    padding: 30px 20px; /* +10px each side */
-}
+/* --- Image Modal --- */
+#image-modal .modal-content { text-align:left; width:60%; max-width:650px; max-height:90%; padding:30px 20px; }
 
-/* --- Title + Year + Indicator Row --- */
-.title-row {
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 20px; /* increased margin for spacing */
-    flex-wrap: wrap;
-}
-.modal-title {
-    font-weight: 330;
-    font-size: 1.7rem;
-    margin: 0;
-}
-.modal-year {
-    font-weight: 200;
-    font-size: 1rem;
-    color: #555;
-}
-.carousel-indicator {
-    font-weight: 200;
-    font-size: 1rem;
-    color: #000;
-    margin-left: auto;
-}
+.title-row { display:flex; justify-content:flex-start; align-items:baseline; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+.modal-title { font-weight:300; font-size:1.7rem; margin:0; }
+.modal-year { font-weight:200; font-size:1rem; color:#555; }
+.carousel-indicator { font-weight:200; font-size:1rem; color:#000; margin-left:auto; }
 
-/* --- Description --- */
-.modal-desc {
-    font-weight: 200;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    letter-spacing: 0.3px;
-    text-align: left;
-    margin: 10px 0; /* added extra space around text */
-}
-.modal-desc p {
-    margin: 10px 0; /* +10px */
-}
-.modal-desc a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.2s ease;
-}
-.modal-desc a:hover {
-    color: #555;
-    text-decoration: underline;
-}
+.modal-desc { font-weight:200; font-size:1.1rem; line-height:1.6; letter-spacing:0.3px; text-align:left; margin:10px 0; }
+.modal-desc p { margin:10px 0; }
+.modal-desc a { color:#000; text-decoration:none; font-weight:400; transition:color 0.2s ease; }
+.modal-desc a:hover { color:#555; text-decoration:underline; }
 
 /* --- Carousel --- */
-.carousel-container {
-    width: 100%;
-    overflow: hidden;
-    max-height: 60vh;
-    margin-bottom: 20px; /* +10px for spacing */
-}
-.carousel-track {
-    display: flex;
-    transition: transform 0.4s ease;
-    cursor: grab;
-    margin: 0 -10px;
-}
-.carousel-track img {
-    min-width: 100%;
-    max-height: 60vh;
-    object-fit: contain;
-    user-select: none;
-}
+.carousel-container { width:100%; overflow:hidden; max-height:60vh; margin-bottom:20px; }
+.carousel-track { display:flex; transition:transform 0.4s ease; cursor:grab; margin:0 -10px; }
+.carousel-track img { min-width:100%; max-height:60vh; object-fit:contain; user-select:none; }
 
 /* --- Responsive --- */
-@media (max-width: 768px) {
-    .project img { width: 90%; }
-    #about-modal .modal-content,
-    #image-modal .modal-content { width: 90%; max-height: 90%; }
-    header { padding: 20px; }
-    main.main-gallery { padding-top: 100px; }
-    .title-row { flex-direction: column; align-items: flex-start; }
-    .modal-year { margin-top: 5px; }
-    .carousel-indicator { margin-left: 0; margin-top: 5px; }
+@media (max-width:768px) {
+.project img { width:90%; }
+#about-modal .modal-content, #image-modal .modal-content { width:90%; max-height:90%; }
+header { padding:20px; }
+main.main-gallery { padding-top:100px; }
+.title-row { flex-direction:column; align-items:flex-start; }
+.modal-year { margin-top:5px; }
+.carousel-indicator { margin-left:0; margin-top:5px; }
 }
 </style>
 </head>
@@ -240,6 +128,7 @@ main.main-gallery {
 <!-- About Modal -->
 <div id="about-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title">
   <div class="modal-content">
+    <button class="close-btn" aria-label="Close About Modal">×</button>
     <img src="media/IMG_1187.png" alt="Portrait of Panna Drenkó" class="profile-img" loading="lazy">
     <p id="about-title">Panna Drenkó is a visual artist and graphic designer working across installation, print, animation, and digital media, exploring how meaning emerges through symbols, gestures, and atmosphere. Her practice draws on folk stories, public signage, publishing, and natural forms, with a focus on transformation and care. She is completing her BA in Graphic Design at the Royal Academy of Art, The Hague (2026), and her projects create systems that foster design and connection.</p>
     <p>Instagram: <a href="https://www.instagram.com/pannathepan" target="_blank" rel="noopener noreferrer">@pannathepan</a></p>
@@ -250,6 +139,7 @@ main.main-gallery {
 <!-- Image Modal -->
 <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-content" id="image-modal-content">
+    <button class="close-btn" aria-label="Close Image Modal">×</button>
     <div class="carousel-container" aria-label="Project image carousel">
       <div class="carousel-track" id="carousel-track"></div>
     </div>
@@ -265,203 +155,134 @@ main.main-gallery {
 <main id="project-list" class="main-gallery"></main>
 
 <script>
-// Focus Trap Function
+// Focus Trap
 function trapFocus(modal) {
-    const focusable = modal.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
-    if (!focusable.length) return;
-    const firstEl = focusable[0];
-    const lastEl = focusable[focusable.length - 1];
-    
-    modal.addEventListener('keydown', e => {
-        if (e.key === 'Tab') {
-            if (e.shiftKey) {
-                if (document.activeElement === firstEl) {
-                    e.preventDefault();
-                    lastEl.focus();
-                }
-            } else {
-                if (document.activeElement === lastEl) {
-                    e.preventDefault();
-                    firstEl.focus();
-                }
-            }
-        }
-    });
-
-    firstEl.focus();
+  const focusable = modal.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+  if(!focusable.length) return;
+  const firstEl = focusable[0];
+  const lastEl = focusable[focusable.length-1];
+  modal.addEventListener('keydown', e=>{
+    if(e.key==='Tab'){
+      if(e.shiftKey && document.activeElement===firstEl){ e.preventDefault(); lastEl.focus(); }
+      else if(!e.shiftKey && document.activeElement===lastEl){ e.preventDefault(); firstEl.focus(); }
+    }
+  });
+  firstEl.focus();
 }
 
 // About Modal
-const aboutBtn = document.getElementById('about-btn');
-const aboutModal = document.getElementById('about-modal');
-aboutBtn.addEventListener('click', () => {
-    aboutModal.classList.add('show');
-    trapFocus(aboutModal);
+const aboutBtn=document.getElementById('about-btn');
+const aboutModal=document.getElementById('about-modal');
+aboutBtn.addEventListener('click', ()=>{
+  aboutModal.classList.add('show');
+  trapFocus(aboutModal);
 });
 
 // Image Modal
-const imageModal = document.getElementById('image-modal');
-const modalContent = document.getElementById('image-modal-content');
-const modalTitle = document.getElementById('modal-title');
-const modalYear = document.getElementById('modal-year');
-const modalDesc = document.getElementById('modal-description');
-const carouselTrack = document.getElementById('carousel-track');
-const carouselIndicator = document.getElementById('carousel-indicator');
+const imageModal=document.getElementById('image-modal');
+const modalContent=document.getElementById('image-modal-content');
+const modalTitle=document.getElementById('modal-title');
+const modalYear=document.getElementById('modal-year');
+const modalDesc=document.getElementById('modal-description');
+const carouselTrack=document.getElementById('carousel-track');
+const carouselIndicator=document.getElementById('carousel-indicator');
 
-let currentImages = [];
-let currentIndex = 0;
+let currentImages=[];
+let currentIndex=0;
 
 function showCarouselImages(images){
-    carouselTrack.innerHTML='';
-    currentImages = images;
-    currentIndex = 0;
-
-    images.forEach((src)=>{
-        const img = document.createElement('img');
-        img.src = src;
-        img.loading = 'lazy';
-        carouselTrack.appendChild(img);
-    });
-
-    updateCarousel();
+  carouselTrack.innerHTML='';
+  currentImages=images;
+  currentIndex=0;
+  images.forEach(src=>{
+    const img=document.createElement('img');
+    img.src=src;
+    img.loading='lazy';
+    carouselTrack.appendChild(img);
+  });
+  updateCarousel();
 }
 
 function updateCarousel(){
-    carouselTrack.style.transform = `translateX(-${currentIndex*100}%)`;
-    carouselIndicator.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+  carouselTrack.style.transform=`translateX(-${currentIndex*100}%)`;
+  carouselIndicator.textContent=`${currentIndex+1} / ${currentImages.length}`;
 }
 
-function nextImage(){ 
-    currentIndex = (currentIndex + 1) % currentImages.length; 
-    updateCarousel(); 
-}
-function prevImage(){ 
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; 
-    updateCarousel(); 
-}
+function nextImage(){ currentIndex=(currentIndex+1)%currentImages.length; updateCarousel(); }
+function prevImage(){ currentIndex=(currentIndex-1+currentImages.length)%currentImages.length; updateCarousel(); }
 
-// Swipe & Drag Support
-let startX = 0;
-let isDragging = false;
+// Swipe & Drag
+let startX=0, isDragging=false;
+modalContent.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; });
+modalContent.addEventListener('touchend', e=>{
+  const endX=e.changedTouches[0].clientX;
+  if(endX<startX-30) nextImage();
+  else if(endX>startX+30) prevImage();
+});
+modalContent.addEventListener('mousedown', e=>{ isDragging=true; startX=e.clientX; });
+modalContent.addEventListener('mouseup', e=>{
+  if(!isDragging) return;
+  isDragging=false;
+  const moved=e.clientX-startX;
+  if(moved<-50) nextImage();
+  else if(moved>50) prevImage();
+});
+carouselTrack.addEventListener('click', ()=>nextImage());
+carouselTrack.querySelectorAll('img').forEach(img=>img.addEventListener('dragstart', e=>e.preventDefault()));
 
-modalContent.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-modalContent.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    if(endX < startX - 30) nextImage();
-    else if(endX > startX + 30) prevImage();
+// Keyboard
+document.addEventListener('keydown', e=>{
+  if(imageModal.classList.contains('show')){
+    if(e.key==='ArrowRight'){ e.preventDefault(); nextImage(); }
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); prevImage(); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); modalContent.scrollBy({top:-50, behavior:'smooth'}); }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); modalContent.scrollBy({top:50, behavior:'smooth'}); }
+  } else if(aboutModal.classList.contains('show')){
+    if(e.key==='ArrowUp'){ e.preventDefault(); aboutModal.querySelector('.modal-content').scrollBy({top:-50, behavior:'smooth'}); }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); aboutModal.querySelector('.modal-content').scrollBy({top:50, behavior:'smooth'}); }
+  }
 });
 
-modalContent.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX; });
-modalContent.addEventListener('mouseup', e => {
-    if(!isDragging) return;
-    isDragging = false;
-    const moved = e.clientX - startX;
-    if(moved < -50) nextImage();
-    else if(moved > 50) prevImage();
-});
+// Close modals
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ aboutModal.classList.remove('show'); imageModal.classList.remove('show'); }});
+[aboutModal,imageModal].forEach(modal=>{ modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('show'); }); });
+document.querySelectorAll('.close-btn').forEach(btn=>{ btn.addEventListener('click', ()=>{ aboutModal.classList.remove('show'); imageModal.classList.remove('show'); }); });
 
-carouselTrack.addEventListener('click', () => nextImage());
-carouselTrack.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
-
-// Keyboard navigation
-document.addEventListener('keydown', e => {
-    if (imageModal.classList.contains('show')) {
-        if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            nextImage();
-        } else if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            prevImage();
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            modalContent.scrollBy({ top: -50, behavior: 'smooth' });
-        } else if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            modalContent.scrollBy({ top: 50, behavior: 'smooth' });
-        }
-    } else if (aboutModal.classList.contains('show')) {
-        // Scroll the about modal content with arrows
-        if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            aboutModal.querySelector('.modal-content').scrollBy({ top: -50, behavior: 'smooth' });
-        } else if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            aboutModal.querySelector('.modal-content').scrollBy({ top: 50, behavior: 'smooth' });
-        }
-    }
-});
-
-
-// Project Data
-const projects = [
-  { title:"Allen Ginsberg – SUNFLOWER SOUL", year:2025, description:[
-    "Translated by Domonkos Czigány. Cover & illustrations by Panna Drenkó.",
-    "Allen Ginsberg’s political spiritualism and visionary poetry in three poems. The volume includes translations of:",
-    "Paterson (1949)",
-    "In the Baggage Room at Greyhound (1956)",
-    "Sunflower Sutra (1955)",
-    "Printed in 36 numbered copies, machine-stitched. At the November 16th launch, all copies sold out."
-  ], images:["media/napraforgo2.png","media/napraforgo.png","media/napraforgo4.png","media/napraforgo5.png"]},
-  { title:"A catalogue of selected Best Dutch Book Designs", year:2025, description:[
-    "A selection of books from Huis van het Boek, chosen for their textures. A collection of printed stones."
-  ], images:["media/rock1.png","media/rock2.png","media/rock3.png"]},
-  { title:"Oral history interview with Michal Brody", year:2025, description:[
-    "Women in Print: Voices From the Radical Feminist Press (1960–1985) by Suzanne Snider. A transcript-based publication."
-  ], images:["media/linegrid1.png","media/linegrid2.png","media/linegrid3.png"]},
-  { title:"To Be Looked At With Care", year:2025, description:[
-    "A short film exploring femininity as a fluid, personal form of self-expression.",
-    "Created in collaboration with: Celina Gonczol, Manuel De Almeida-Ferrer",
-    "Watch the video: <a href='https://www.youtube.com/watch?v=mH0GFQWLffU&t=1s' target='_blank' rel='noopener noreferrer'>YouTube</a>"
-  ], images:["media/filmfem2.png","media/filmfem3.png","media/filmfem1.png","media/filmfem4.png"]},
-  { title:"SNEAKING", year:2024, description:[
-    "Poster, Light & Sound Installation, Publication",
-    "The visual identity of the project is introduced through a poster inspired by real mold warning signs, referencing subtle, invisible threats. The work was installed as a light and sound piece in the basement gallery of KABK, using atmosphere and space to build suspense. Additionally, a small publication gathers and reflects on the layered vocabulary of *sneaking* in Hungarian, creating a poetic study of hidden movement."
-  ], images:["media/sneaking1.png","media/sneaking4.png","media/sneaking5.png","media/sneaking6.png"]},
-  { title:"Revisiting HERESIES", year:2024, description:[
-    "A visual research project on HERESIES: A Feminist Publication on Art and Politics (1977–1993), created by the New York-based Heresies Collective, along with other feminist publications from the same period.",
-    "The outcome is a collage-based zine that reflects the layered, collective nature of these publications, focusing on how design, politics, and feminist voices came together on the page."
-  ], images:["media/feminist.png","media/feminist.png2.png"]}
+// Projects
+const projects=[
+  { title:"Allen Ginsberg – SUNFLOWER SOUL", year:2025, description:["Translated by Domonkos Czigány. Cover & illustrations by Panna Drenkó.","Allen Ginsberg’s political spiritualism and visionary poetry in three poems. The volume includes translations of:","Paterson (1949)","In the Baggage Room at Greyhound (1956)","Sunflower Sutra (1955)","Printed in 36 numbered copies, machine-stitched. At the November 16th launch, all copies sold out."], images:["media/napraforgo2.png","media/napraforgo.png","media/napraforgo4.png","media/napraforgo5.png"]},
+  { title:"A catalogue of selected Best Dutch Book Designs", year:2025, description:["A selection of books from Huis van het Boek, chosen for their textures. A collection of printed stones."], images:["media/rock1.png","media/rock2.png","media/rock3.png"]},
+  { title:"Oral history interview with Michal Brody", year:2025, description:["Women in Print: Voices From the Radical Feminist Press (1960–1985) by Suzanne Snider. A transcript-based publication."], images:["media/linegrid1.png","media/linegrid2.png","media/linegrid3.png"]},
+  { title:"To Be Looked At With Care", year:2025, description:["A short film exploring femininity as a fluid, personal form of self-expression.","Created in collaboration with: Celina Gonczol, Manuel De Almeida-Ferrer","Watch the video: <a href='https://www.youtube.com/watch?v=mH0GFQWLffU&t=1s' target='_blank' rel='noopener noreferrer'>YouTube</a>"], images:["media/filmfem2.png","media/filmfem3.png","media/filmfem1.png","media/filmfem4.png"]},
+  { title:"SNEAKING", year:2024, description:["Poster, Light & Sound Installation, Publication","The visual identity of the project is introduced through a poster inspired by real mold warning signs, referencing subtle, invisible threats. The work was installed as a light and sound piece in the basement gallery of KABK, using atmosphere and space to build suspense. Additionally, a small publication gathers and reflects on the layered vocabulary of *sneaking* in Hungarian, creating a poetic study of hidden movement."], images:["media/sneaking1.png","media/sneaking4.png","media/sneaking5.png","media/sneaking6.png"]},
+  { title:"Revisiting HERESIES", year:2024, description:["A visual research project on HERESIES: A Feminist Publication on Art and Politics (1977–1993), created by the New York-based Heresies Collective, along with other feminist publications from the same period.","The outcome is a collage-based zine that reflects the layered, collective nature of these publications, focusing on how design, politics, and feminist voices came together on the page."], images:["media/feminist.png","media/feminist.png2.png"]}
 ];
 
 projects.sort((a,b)=>b.year-a.year);
 
-const projectList = document.getElementById('project-list');
+const projectList=document.getElementById('project-list');
 projects.forEach(proj=>{
-    const projectDiv = document.createElement('div');
-    projectDiv.classList.add('project');
-
-    const img = document.createElement('img');
-    img.src = proj.images[0];
-    img.alt = `${proj.title} by Panna Drenkó`;
-    img.loading = 'lazy';
-
-    img.addEventListener('click', ()=>{
-        showCarouselImages(proj.images);
-        modalTitle.textContent = proj.title;
-        modalYear.textContent = proj.year;
-        modalDesc.innerHTML='';
-        proj.description.forEach(p=>{
-            const para = document.createElement('p');
-            para.innerHTML = p;
-            modalDesc.appendChild(para);
-        });
-        imageModal.classList.add('show');
-        trapFocus(imageModal);
+  const projectDiv=document.createElement('div');
+  projectDiv.classList.add('project');
+  const img=document.createElement('img');
+  img.src=proj.images[0];
+  img.alt=`${proj.title} by Panna Drenkó`;
+  img.loading='lazy';
+  img.addEventListener('click', ()=>{
+    showCarouselImages(proj.images);
+    modalTitle.textContent=proj.title;
+    modalYear.textContent=proj.year;
+    modalDesc.innerHTML='';
+    proj.description.forEach(p=>{
+      const para=document.createElement('p');
+      para.innerHTML=p;
+      modalDesc.appendChild(para);
     });
-
-    projectDiv.appendChild(img);
-    projectList.appendChild(projectDiv);
-});
-
-// Close modals
-document.addEventListener('keydown', e=>{ 
-    if(e.key==='Escape'){ 
-        aboutModal.classList.remove('show'); 
-        imageModal.classList.remove('show'); 
-    } 
-});
-[aboutModal,imageModal].forEach(modal=>{
-    modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('show'); });
+    imageModal.classList.add('show');
+    trapFocus(imageModal);
+  });
+  projectDiv.appendChild(img);
+  projectList.appendChild(projectDiv);
 });
 </script>
 </body>
