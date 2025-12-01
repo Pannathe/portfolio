@@ -1,0 +1,56 @@
+/* Hide scrollbar while keeping scroll functionality */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #000;
+  padding-top: 80px;
+  width: 100%;
+  overflow-x: hidden;       /* 🚫 Prevents horizontal scrolling */
+  overflow-y: scroll;       /* ✅ Allow vertical scrolling */
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Reset box-sizing everywhere */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Ensure main gallery is centered and not oversized */
+.main-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 20px;
+  max-width: 100vw; /* ensure it never exceeds viewport width */
+  overflow-x: hidden;
+}
+
+/* Scrollable modals without scrollbar */
+.modal-content {
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  max-width: 90vw;           /* responsive constraint */
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Ensure images never cause overflow */
+.project img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transform: none; /* remove any scale rounding */
+  border-radius: 0;
+}
