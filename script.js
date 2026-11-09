@@ -38,7 +38,6 @@ const contact = document.querySelector('#contact')
 const chrome = document.querySelectorAll('.chrome')
 
 let index = 0
-let frameId = 0
 let timer = null
 let remaining = DURATION
 let started = 0
@@ -57,10 +56,8 @@ function clearTimer() {
 function show(nextIndex) {
   if (!SEQUENCE.length) return
   index = nextIndex
-  const id = ++frameId
   const img = document.createElement('img')
   img.src = SEQUENCE[index]
-  img.alt = ''
   img.draggable = false
   img.className = 'is-on'
   square.querySelectorAll('img.is-on').forEach((current) => current.classList.remove('is-on'))
@@ -131,7 +128,6 @@ function release() {
 stage.addEventListener('pointerup', release)
 stage.addEventListener('pointercancel', release)
 stage.addEventListener('contextmenu', (event) => event.preventDefault())
-stage.addEventListener('dragstart', (event) => event.preventDefault())
 
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && openName) setOverlay(openName)
