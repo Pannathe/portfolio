@@ -1,8 +1,8 @@
 :root {
-  --type: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --type: 'Space Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --pad: clamp(18px, 3vw, 36px);
-  --chrome: 13px;
-  --track: 0.14em;
+  --chrome: 15px;
+  --track: 0.12em;
   --fade: 220ms;
 }
 
@@ -17,10 +17,10 @@ body,
 #root {
   margin: 0;
   height: 100%;
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #111;
   font-family: var(--type);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: var(--track);
   -webkit-font-smoothing: antialiased;
 }
@@ -55,7 +55,7 @@ button:hover {
   height: 100%;
   height: 100dvh;
   overflow: hidden;
-  background: #000;
+  background: #fff;
 }
 
 .stage {
@@ -74,44 +74,16 @@ button.chrome {
   cursor: pointer;
 }
 
-.bg-layer {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity var(--fade) ease;
-  pointer-events: none;
-}
-
-.bg-layer.is-on {
-  opacity: 1;
-}
-
-.bg-layer img,
-.bg-layer video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-  -webkit-user-drag: none;
-}
-
 .square {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(140px, 18vw, 220px);
+  width: clamp(200px, 34vmin, 320px);
   aspect-ratio: 1 / 1;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity var(--fade) ease;
   z-index: 2;
-}
-
-.square.is-visible {
-  opacity: 1;
 }
 
 .square img {
@@ -121,7 +93,8 @@ button.chrome {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition: opacity var(--fade) ease;
+  pointer-events: none;
   -webkit-user-drag: none;
 }
 
@@ -133,8 +106,10 @@ button.chrome {
   position: fixed;
   z-index: 10;
   font-size: var(--chrome);
+  font-weight: 500;
   line-height: 1;
   text-transform: lowercase;
+  /* White ink inverted against the artwork: light on dark, dark on light. */
   mix-blend-mode: difference;
   color: #fff;
 }
@@ -181,6 +156,7 @@ button.chrome {
   z-index: 20;
   background: #f4f3ef;
   color: #111;
+  font-weight: 400;
   mix-blend-mode: normal;
   display: flex;
   align-items: center;
@@ -212,26 +188,20 @@ button.chrome {
   text-align: right;
 }
 
-.portrait {
-  width: 92px;
-  height: 118px;
-  object-fit: cover;
-  display: block;
-}
-
 .bio,
 .contact-line {
   margin: 0;
-  font-size: clamp(13px, 1.7vw, 15px);
-  line-height: 1.7;
-  letter-spacing: 0.08em;
-  font-weight: 300;
+  font-size: clamp(14px, 1.8vw, 16px);
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+  font-weight: 400;
   max-width: 38rem;
 }
 
 .contact-line {
-  font-size: clamp(14px, 2vw, 18px);
-  letter-spacing: 0.16em;
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
 }
 
 .close-hint {
@@ -244,7 +214,7 @@ button.chrome {
 
 @media (max-width: 640px) {
   :root {
-    --chrome: 12px;
+    --chrome: 14px;
     --pad: 16px;
   }
 
