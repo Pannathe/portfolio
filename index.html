@@ -25,9 +25,45 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="stage" id="stage">
+      <div class="square" id="square"></div>
+    </div>
+
+    <div class="chrome name">Panna Drenko</div>
+    <button class="chrome about" id="about-btn" type="button">about</button>
+    <button class="chrome contact" id="contact-btn" type="button">contact</button>
+    <div class="chrome logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <rect x="1" y="1" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.2" />
+        <rect x="9" y="9" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.2" />
+        <circle cx="12" cy="12" r="2.2" fill="currentColor" />
+      </svg>
+    </div>
+
+    <div class="overlay" id="about" hidden role="dialog" aria-label="About">
+      <button class="close-hint" type="button" data-close>close</button>
+      <div class="overlay-inner">
+        <p class="bio">
+          Panna Drenkó (Panna Drenko) is a visual artist and graphic designer working across
+          installation, print, animation, and digital media, exploring how meaning emerges through
+          symbols, gestures, and atmosphere. Her practice draws on folk stories, public signage,
+          publishing, and natural forms, with a focus on transformation and care. She is completing
+          her BA in Graphic Design at the Royal Academy of Art, The Hague (2026).
+        </p>
+      </div>
+    </div>
+
+    <div class="overlay" id="contact" hidden role="dialog" aria-label="Contact">
+      <button class="close-hint" type="button" data-close>close</button>
+      <div class="overlay-inner is-contact">
+        <a class="contact-line" href="mailto:drenkopanna@gmail.com">drenkopanna@gmail.com</a>
+        <a class="contact-line" href="https://www.instagram.com/pannathepan" target="_blank" rel="noreferrer">@pannathepan</a>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
