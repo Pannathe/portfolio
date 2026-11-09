@@ -1,0 +1,256 @@
+:root {
+  --type: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --pad: clamp(18px, 3vw, 36px);
+  --chrome: 13px;
+  --track: 0.14em;
+  --fade: 220ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  font-family: var(--type);
+  font-weight: 300;
+  letter-spacing: var(--track);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+button:hover {
+  opacity: 0.55;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #000;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  touch-action: none;
+}
+
+button.chrome {
+  cursor: pointer;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--fade) ease;
+  pointer-events: none;
+}
+
+.bg-layer.is-on {
+  opacity: 1;
+}
+
+.bg-layer img,
+.bg-layer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(140px, 18vw, 220px);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--fade) ease;
+  z-index: 2;
+}
+
+.square.is-visible {
+  opacity: 1;
+}
+
+.square img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  -webkit-user-drag: none;
+}
+
+.square img.is-on {
+  opacity: 1;
+}
+
+.chrome {
+  position: fixed;
+  z-index: 10;
+  font-size: var(--chrome);
+  line-height: 1;
+  text-transform: lowercase;
+  mix-blend-mode: difference;
+  color: #fff;
+}
+
+.chrome.is-plain {
+  mix-blend-mode: normal;
+  color: #111;
+}
+
+.name {
+  top: var(--pad);
+  left: var(--pad);
+  text-transform: none;
+  pointer-events: none;
+}
+
+.about {
+  top: var(--pad);
+  right: var(--pad);
+}
+
+.contact {
+  bottom: var(--pad);
+  right: var(--pad);
+}
+
+.logo {
+  bottom: var(--pad);
+  left: var(--pad);
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+.logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #f4f3ef;
+  color: #111;
+  mix-blend-mode: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--pad) * 3) var(--pad);
+  overflow: auto;
+  animation: overlay-in 220ms ease;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.overlay-inner {
+  width: min(42rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.8rem;
+}
+
+.overlay-inner.is-contact {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.portrait {
+  width: 92px;
+  height: 118px;
+  object-fit: cover;
+  display: block;
+}
+
+.bio,
+.contact-line {
+  margin: 0;
+  font-size: clamp(13px, 1.7vw, 15px);
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  font-weight: 300;
+  max-width: 38rem;
+}
+
+.contact-line {
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 0.16em;
+}
+
+.close-hint {
+  position: fixed;
+  top: var(--pad);
+  right: var(--pad);
+  font-size: var(--chrome);
+  letter-spacing: var(--track);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --chrome: 12px;
+    --pad: 16px;
+  }
+
+  .overlay-inner,
+  .overlay-inner.is-contact {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
